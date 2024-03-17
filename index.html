@@ -10,33 +10,33 @@
       margin: 0;
       padding: 0;
       background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure the body fills the viewport */
     }
     
     header {
       background-color: #333;
       color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
     nav {
       display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      background-color: #4CAF50;
+      justify-content: flex-end;
+      align-items: center;
     }
     
     nav a {
       text-decoration: none;
       color: #fff;
       padding: 10px;
-      transition: background-color 0.3s;
+      margin-left: 10px;
     }
 
-    nav a:hover {
-      background-color: #45a049;
-    }
-    
     section {
       padding: 20px;
       background-color: #fff;
@@ -91,33 +91,47 @@
       color: #fff;
       text-align: center;
       padding: 10px 0;
-      position: fixed;
-      bottom: 0;
+      margin-top: auto; /* Push the footer to the bottom of the viewport */
       width: 100%;
+    }
+    
+    #imageContainer {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    #imageContainer img {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Machine Learning Model</h1>
-    <p>Description of the model</p>
+    <nav>
+      <a href="#description">Description</a>
+      <a href="#feedback">Feedback</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Feedback</a>
-    <a href="#">Using Model</a>
-    <a href="#">Notebook</a>
-  </nav>
-
-  <section id="model-description">
-    <h2>Model Description</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+  <section id="image-input">
+    <h2>Image Input</h2>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="detectImage()">Detect</button>
+    <div id="imageContainer"></div>
   </section>
 
-  <section id="using-model">
-    <h2>Using Model</h2>
-    <!-- This section intentionally left blank -->
+  <section id="model-name">
+    <h2>Model Name</h2>
+    <p id="modelName"></p>
+  </section>
+
+  <section id="description">
+    <h2>Model Description</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
   </section>
 
   <section id="feedback">
@@ -132,5 +146,34 @@
   <footer>
     <p>Copyright &copy; 2024 Machine Learning Model</p>
   </footer>
+
+  <script>
+    function detectImage() {
+      // Code to detect image using machine learning model
+      // Here, we'll just display the selected image
+      const imageInput = document.getElementById('imageInput');
+      const imageContainer = document.getElementById('imageContainer');
+      const file = imageInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.style.maxWidth = '100%';
+          img.style.height = 'auto';
+          imageContainer.innerHTML = '';
+          imageContainer.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Code to fetch model name from file
+    // For demonstration, we'll use a placeholder value
+    document.getElementById('modelName').innerText = 'Sample Model Name';
+  </script>
 </body>
 </html>
