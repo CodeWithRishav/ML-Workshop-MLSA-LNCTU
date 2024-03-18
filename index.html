@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Machine Learning Model</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+</head>
+<style>
+	body {
+		/* background-color: whitesmoke; */
+		background: linear-gradient(180deg, #5C258D, #4389A2);
+	}
+	.navbar {
+      background: linear-gradient(90deg, #4389A2, #5C258D);
+    }
+	.container {
+      /* background-color: rgba(255, 255, 255, 0.9); */
+	  background-image: linear-gradient(to right top, #6c8fac, #6886a2, #647e99, #60758f, #5c6d85);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+	h2 {
+      color: #000000;
+    }
+
+    h3 {
+      color: #fff;
+    }
+
+    p {
+      color: #000000;
+    }
+	input[type="file"] {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #4389A2, #5C258D);
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+</style>
+
+<body>
+
+	<!-- Navigation bar -->
+	<div id="header" class="sticky-top bg-black p-2 text-white">
+		<h3 class="text-center text-white">Fast Food Detector</h3>
+	</div>
+
+	<!-- Model Use Case -->
+	<div class="container mt-3 p-4 shadow-lg rounded-5" id="model">
+		<h2 class="text-capitalize text-center"><u>Try Model</u></h2>
+		<div class="row mt-3">
+			<div class="col-md-12">
+				<h5 class="mb-3">Image Input :</h5>
+				<input type="file" id="imageInput" class="form-control mb-3" accept="image/*" style="width: 100%;">
+				<button class="btn btn-primary mx-auto d-block mb-3" onclick="detectImage()">Detect</button>
+			</div>
+		</div>
+		<div class="row mt-3 text-center">
+			<div class="col-md-12">
+				<div id="imageContainer"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Model Description section -->
+	<div class="container mt-3 shadow-lg p-4 rounded-5" id="desc">
+		<h2 class="text-capitalize text-center"><u>Model Description</u></h2>
+		<div class="m-3 text-lg-start text-black">
+			<p>
+				ResNet50V2 is a convolutional neural network architecture renowned for its deep layers and skip
+				connections,
+				which facilitate effective training and learning of complex features. As part of our final model
+				development,
+				we have integrated ResNet50V2 as the backbone architecture, leveraging its pre-trained weights to
+				extract
+				hierarchical features from input images.
+			</p>
+			<p>
+				Our model utilizes transfer learning, a powerful technique that enables the transfer of knowledge from
+				pre-trained models to new tasks. By fine-tuning the parameters of the ResNet50V2 backbone, we adapt the
+				model
+				to our specific dataset, enhancing its ability to classify images accurately.
+			</p>
+			<p>
+				To augment the dataset and increase its diversity, we apply data augmentation techniques during
+				training.
+				This involves generating synthetic variations of the input images, such as rotations, flips, and shifts,
+				thereby enriching the training data and improving the model's robustness against variations in
+				real-world
+				images.
+			</p>
+			<p>
+				In addition to data augmentation, we employ a reduced learning rate on plateau strategy to dynamically
+				adjust the learning rate during training. This adaptive approach monitors the validation loss, reducing
+				the learning rate when the model's performance plateaus, and increasing it when improvements are
+				observed.
+				By fine-tuning the learning rate, we ensure efficient convergence and prevent overfitting.
+			</p>
+			<p>
+				Complementing the ResNet50V2 backbone, we design a custom top classifier comprising dense layers, batch
+				normalization, and dropout regularization. These components further refine the model's ability to
+				capture
+				intricate patterns in the data while preventing overfitting by introducing stochasticity during
+				training.
+			</p>
+		</div>
+	</div>
+
+	<!-- Contacts section -->
+	<div class="container mt-3 mb-5 shadow-lg p-4 rounded-5" id="Contacts">
+		<h2 class="text-capitalize text-center"><u>Contacts</u></h2>
+
+		<div class="text-center m-5">
+			<a href="https://www.linkedin.com/company/mlsalnctu/" class="btn btn-primary fw-bold fs-5"
+				target="_blank">LinkedIn</a>
+			<a href="https://www.instagram.com/mlsalnctu/" class="btn btn-success fw-bold fs-5"
+				target="_blank">Instagram</a>
+			<a href="https://github.com/mlsalnctu" class="btn btn-warning fw-bold fs-5" target="_blank">GitHub</a>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="text-center text-muted py-3">
+		Copyright &copy; 2024 MLSA LNCTU
+	</footer>
+
+</body>
+<script src="script.js"></script>
+
+</html>
