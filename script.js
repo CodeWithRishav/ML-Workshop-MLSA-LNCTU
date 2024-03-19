@@ -14,7 +14,7 @@ const classes = {
 
 async function loadModel() {
     try {
-        model = await tf.loadLayersModel('Model/model.json');
+        model = await tf.loadLayersModel('./Model/model.json');
         console.log('Model loaded successfully');
     } catch (error) {
         console.error('Failed to load model:', error);
