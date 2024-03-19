@@ -15,6 +15,7 @@ const classes = {
 async function loadModel() {
     try {
         model = await tf.loadLayersModel('Model/model.json');
+        modelheading.innerHTML = `<u>Try Model(Loaded!)</u>`;
         console.log('Model loaded successfully');
     } catch (error) {
         console.error('Failed to load model:', error);
@@ -27,6 +28,7 @@ function detectImage() {
         return;
     }
 
+    const modelheading = document.getElementById('modelTag');
     const imageInput = document.getElementById('imageInput');
     const imageContainer = document.getElementById('imageContainer');
     const file = imageInput.files[0];
