@@ -13,13 +13,43 @@
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
 </head>
 <style>
-	body {
+	body{
 		/* background-color: whitesmoke; */
 		background: linear-gradient(180deg, #5C258D, #4389A2);
+		font-family: 'Sora', sans-serif;
+		background-color: black;
 	}
+	.heading{
+		color : #4DFFEA;
+		font-weight: bold;
+		/* text-transform: capitalize; */
+	}
+
+	.sub{
+		color : #d2bdff;
+	}
+
+	.nav{
+		border-bottom : 2px solid white;
+	}
+
 	.navbar {
       background: linear-gradient(90deg, #4389A2, #5C258D);
     }
+	.btn{
+		border: 2px solid #00cec9;
+        padding: 10px 50px;
+        border-radius: 50px;
+        background-color: #81ecec;
+        transition: 1s;
+		font-weight: bold;
+		/* font-size: 20px; */
+	}
+	.btn:hover{
+		background-color: #81ecec;
+		border: 2px solid #ffffff;
+        cursor: pointer;
+	}
 	.container {
       background-color: rgba(255, 255, 255, 0.9);
       border-radius: 10px;
@@ -27,6 +57,11 @@
       margin-top: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+	.b{
+	  /* border: 4px solid #A2CDFF; */
+	  background-color: #2a272f;
+	}
+
 	h2 {
       color: #333;
     }
@@ -42,6 +77,13 @@
       margin-bottom: 10px;
     }
 
+	.social{
+		margin : 20px 10px;
+		/* font-size: 5px; */
+	}
+
+	
+
     footer {
       background: linear-gradient(90deg, #4389A2, #5C258D);
       color: #000000;
@@ -51,23 +93,28 @@
       bottom: 0;
       width: 100%;
     }
+
+	/* utility */
+	.bold{
+		font-weight: bold;
+	}
 </style>
 
 <body>
 
 	<!-- Navigation bar -->
-	<div id="header" class="sticky-top bg-black p-2 text-white">
-		<h3 class="text-center text-white">Fast Food Detector</h3>
+	<div id="header" class="sticky-top b p-2 text-white nav">
+		<h3 class="text-center heading">Fast Food Detector</h3>
 	</div>
 
 	<!-- Model Use Case -->
-	<div class="container mt-3 p-4 shadow-lg rounded-5" id="model">
-		<h2 class="text-capitalize text-center" id="modelTag"><u>Try Model(loading...)</u></h2>
+	<div class="container mt-3 p-4 shadow-lg rounded-5 b" id="model">
+		<h2 class="text-center bold sub" id="modelTag">Try Model ( loading... )</h2>
 		<div class="row mt-3">
 			<div class="col-md-12">
 				<h5 class="mb-3">Image Input :</h5>
 				<input type="file" id="imageInput" class="form-control mb-3" accept="image/*" style="width: 100%;">
-				<button class="btn btn-primary mx-auto d-block mb-3" onclick="detectImage()">Detect</button>
+				<button class="btn text-black btn-primary mx-auto d-block mb-3" onclick="detectImage()">Detect</button>
 			</div>
 		</div>
 		<div class="row mt-3 text-center">
@@ -79,10 +126,10 @@
 
 
 	<!-- Model Description section -->
-	<div class="container mt-3 shadow-lg p-4 rounded-5" id="desc">
-		<h2 class="text-capitalize text-center"><u>Model Description</u></h2>
-		<div class="m-3 text-lg-start text-black">
-			<p>
+	<div class="container mt-5 shadow-lg p-4 rounded-5 b" id="desc">
+		<h2 class="text-capitalize text-center bold sub pb-4">Model Description</h2>
+		<div class="m-3 text-lg-start bold">
+			<p class="text-white">
 				ResNet50V2 is a convolutional neural network architecture renowned for its deep layers and skip
 				connections,
 				which facilitate effective training and learning of complex features. As part of our final model
@@ -91,13 +138,13 @@
 				extract
 				hierarchical features from input images.
 			</p>
-			<p>
+			<p class="text-white">
 				Our model utilizes transfer learning, a powerful technique that enables the transfer of knowledge from
 				pre-trained models to new tasks. By fine-tuning the parameters of the ResNet50V2 backbone, we adapt the
 				model
 				to our specific dataset, enhancing its ability to classify images accurately.
 			</p>
-			<p>
+			<p class="text-white">
 				To augment the dataset and increase its diversity, we apply data augmentation techniques during
 				training.
 				This involves generating synthetic variations of the input images, such as rotations, flips, and shifts,
@@ -105,14 +152,14 @@
 				real-world
 				images.
 			</p>
-			<p>
+			<p class="text-white">
 				In addition to data augmentation, we employ a reduced learning rate on plateau strategy to dynamically
 				adjust the learning rate during training. This adaptive approach monitors the validation loss, reducing
 				the learning rate when the model's performance plateaus, and increasing it when improvements are
 				observed.
 				By fine-tuning the learning rate, we ensure efficient convergence and prevent overfitting.
 			</p>
-			<p>
+			<p class="text-white">
 				Complementing the ResNet50V2 backbone, we design a custom top classifier comprising dense layers, batch
 				normalization, and dropout regularization. These components further refine the model's ability to
 				capture
@@ -123,15 +170,15 @@
 	</div>
 
 	<!-- Contacts section -->
-	<div class="container mt-3 mb-5 shadow-lg p-4 rounded-5" id="Contacts">
-		<h2 class="text-capitalize text-center"><u>Contacts</u></h2>
+	<div class="container mt-5 mb-5 shadow-lg p-4 rounded-5 b" id="Contacts">
+		<h2 class="text-capitalize bold text-center sub">Contacts</h2>
 
-		<div class="text-center m-5">
-			<a href="https://www.linkedin.com/company/mlsalnctu/" class="btn btn-primary fw-bold fs-5"
+		<div class="text-center social">
+			<a href="https://www.linkedin.com/company/mlsalnctu/" class="btn social text-black btn-primary fw-bold fs-5"
 				target="_blank">LinkedIn</a>
-			<a href="https://www.instagram.com/mlsalnctu/" class="btn btn-success fw-bold fs-5"
+			<a href="https://www.instagram.com/mlsalnctu/" class="btn social text-black btn-success fw-bold fs-5"
 				target="_blank">Instagram</a>
-			<a href="https://github.com/mlsalnctu" class="btn btn-warning fw-bold fs-5" target="_blank">GitHub</a>
+			<a href="https://github.com/mlsalnctu" class="btn social btn-warning fw-bold fs-5" target="_blank">GitHub</a>
 		</div>
 	</div>
 

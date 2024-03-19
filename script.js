@@ -16,7 +16,7 @@ async function loadModel() {
     try {
         model = await tf.loadLayersModel('Model/model.json');
         const modelheading = document.getElementById('modelTag');
-        modelheading.innerHTML = `<u>Try Model(Loaded!)</u>`;
+        modelheading.innerHTML = `Try Model ( loaded ! )`;
         console.log('Model loaded successfully');
     } catch (error) {
         console.error('Failed to load model:', error);
