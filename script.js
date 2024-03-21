@@ -23,6 +23,29 @@ async function loadModel() {
     }
 }
 
+function handleImageUpload() {
+    const imageInput = document.getElementById('imageInput');
+    const imageContainer = document.getElementById('imageContainer');
+    const file = imageInput.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const img = new Image();
+            img.onload = function () {
+                // Display the selected image
+                imageContainer.innerHTML = '';
+                imageContainer.appendChild(img);
+            };
+
+            img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+
 function detectImage() {
     if (!model) {
         console.error('Model not loaded yet');
@@ -95,4 +118,8 @@ function detectImage() {
 }
 
 // Load the model when the page is loaded
-window.onload = loadModel;
+window.onload = function () {
+    loadModel();
+    // Call the handleImageUpload function when an image is chosen
+    document.getElementById('imageInput').addEventListener('change', handleImageUpload);
+};
