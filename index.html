@@ -17,12 +17,11 @@
 		/* background-color: whitesmoke; */
 		background: linear-gradient(180deg, #5C258D, #4389A2);
 		font-family: 'Sora', sans-serif;
-		background-color: black;
+		/* background-color: rgb(204, 173, 255); */
 	}
 	.heading{
-		color : #4DFFEA;
+		color : #81ECEC;
 		font-weight: bold;
-		/* text-transform: capitalize; */
 	}
 
 	.sub{
@@ -36,6 +35,7 @@
 	.navbar {
       background: linear-gradient(90deg, #4389A2, #5C258D);
     }
+
 	.btn{
 		border: 2px solid #00cec9;
         padding: 10px 50px;
@@ -79,7 +79,8 @@
 
 	.social{
 		margin : 20px 10px;
-		/* font-size: 5px; */
+		padding : 5px 10px;
+		font-size: 2px;
 	}
 
 	
@@ -89,7 +90,7 @@
       color: #000000;
       text-align: center;
       padding: 10px 0;
-      position: fixed;
+      /* position: fixed; */
       bottom: 0;
       width: 100%;
     }
@@ -108,7 +109,7 @@
 	</div>
 
 	<!-- Model Use Case -->
-	<div class="container mt-3 p-4 shadow-lg rounded-5 b" id="model">
+	<div class="container mt-3 p-4 shadow-lg rounded-3 b" id="model">
 		<h2 class="text-center bold sub" id="modelTag">Try Model ( loading... )</h2>
 		<div class="row mt-3">
 			<div class="col-md-12">
@@ -117,16 +118,16 @@
 				<button class="btn text-black btn-primary mx-auto d-block mb-3" onclick="detectImage()">Detect</button>
 			</div>
 		</div>
-		<div class="row mt-3 text-center">
+		<div class="row mt-3 text-center" id = "imageContainer">
 			<div class="col-md-12">
-				<div id="imageContainer"></div>
+				<div></div>
 			</div>
 		</div>
 	</div>
 
 
 	<!-- Model Description section -->
-	<div class="container mt-5 shadow-lg p-4 rounded-5 b" id="desc">
+	<div class="container mt-5 shadow-lg p-4 rounded-3 b" id="desc">
 		<h2 class="text-capitalize text-center bold sub pb-4">Model Description</h2>
 		<div class="m-3 text-lg-start bold">
 			<p class="text-white">
@@ -170,15 +171,15 @@
 	</div>
 
 	<!-- Contacts section -->
-	<div class="container mt-5 mb-5 shadow-lg p-4 rounded-5 b" id="Contacts">
+	<div class="container mt-5 mb-5 shadow-lg p-4 rounded-3 b" id="Contacts">
 		<h2 class="text-capitalize bold text-center sub">Contacts</h2>
 
 		<div class="text-center social">
 			<a href="https://www.linkedin.com/company/mlsalnctu/" class="btn social text-black btn-primary fw-bold fs-5"
 				target="_blank">LinkedIn</a>
-			<a href="https://www.instagram.com/mlsalnctu/" class="btn social text-black btn-success fw-bold fs-5"
+			<a href="https://www.instagram.com/mlsalnctu/" class="btn social text-black fw-bold fs-5"
 				target="_blank">Instagram</a>
-			<a href="https://github.com/mlsalnctu" class="btn social btn-warning fw-bold fs-5" target="_blank">GitHub</a>
+			<a href="https://github.com/mlsalnctu" class="btn social text-black fw-bold fs-5" target="_blank">GitHub</a>
 		</div>
 	</div>
 
